@@ -25,3 +25,35 @@ function operate(operator, a, b){
         return divide(a, b)
     }
 }
+
+const display = document.querySelector("#display");
+const numberPad = document.querySelectorAll(".number")
+const functions = document.querySelectorAll(".function");
+const equal = document.querySelector(".equal")
+
+let i = 0;
+let displayValue = [];
+
+numberPad.forEach(number => {
+    number.addEventListener("click", () => {
+        console.log("clicked")
+        displayValue[i] = number.id;
+        display.textContent += number.id; 
+        i++;
+    });
+})
+
+functions.forEach(operator => {
+    operator.addEventListener("click", () => {
+        console.log("clicked")
+        displayValue[i] = operator.id;
+        display.textContent += operator.id; 
+        i++;
+    });
+})
+
+equal.addEventListener("click", () => {
+    display.textContent = operate("+", 5, 5);
+    displayValue = []
+})
+
