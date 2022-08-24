@@ -43,6 +43,7 @@ const display = document.querySelector("#display");
 const numberPad = document.querySelectorAll(".number")
 const functions = document.querySelectorAll(".function");
 const equal = document.querySelector(".equal")
+const clear = document.querySelector(".clear")
 
 let i = 0;
 let displayValue = [];
@@ -66,7 +67,14 @@ functions.forEach(operator => {
 })
 
 equal.addEventListener("click", () => {
-    display.textContent = operate("+", 5, 5);
-    displayValue = []
+//    display.textContent = operate("+", 5, 5);
+  display.textContent = ""; 
+  
+  displayValue = [];
 })
 
+clear.addEventListener("click", () => {
+  display.textContent = "";
+  displayValue = [];
+  
+})
