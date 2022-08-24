@@ -13,7 +13,7 @@ function multiply(a, b){
 function divide(a, b){
     return a / b
 }
-
+/*
 function operate(operator, a, b){
     if (operator === "+"){
         return add(a, b)
@@ -22,6 +22,19 @@ function operate(operator, a, b){
     } else if (operator === "*"){
         return multiply(a, b)
     } else if (operator === "/"){
+        return divide(a, b)
+    }
+}
+*/
+const operate = (operator, a, b) => {
+  switch (operator){
+    case "+":
+        return add(a, b) 
+    case  "-":
+        return subtract(a, b)
+    case "*":
+        return multiply(a, b)
+    case "/": 
         return divide(a, b)
     }
 }
@@ -39,16 +52,16 @@ numberPad.forEach(number => {
         console.log("clicked")
         displayValue[i] = number.id;
         display.textContent += number.id; 
-        i++;
     });
 })
 
 functions.forEach(operator => {
     operator.addEventListener("click", () => {
-        console.log("clicked")
-        displayValue[i] = operator.id;
-        display.textContent += operator.id; 
-        i++;
+      i++;  
+      console.log("clicked")
+      displayValue[i] = operator.id;
+      display.textContent += operator.id; 
+      i++;
     });
 })
 
