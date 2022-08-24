@@ -8,7 +8,11 @@ body {
   
 }
 
-.number {
+.number,
+.function,
+.equal,
+.clear
+{
   background-color: blue;
-  
+  color: yellow;
 }
