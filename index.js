@@ -69,7 +69,6 @@ functions.forEach(operator => {
 equal.addEventListener("click", () => {
 //    display.textContent = operate("+", 5, 5);
   display.textContent = ""; 
-  
   displayValue = [];
 })
 
