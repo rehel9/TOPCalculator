@@ -50,6 +50,7 @@ let f = 0;
 let displayValue = [];
 let operatorPressed = [];
 let combinedNumbers = [];
+let finalNumber;
 
 numberPad.forEach(number => {
     number.addEventListener("click", () => {
@@ -71,15 +72,18 @@ functions.forEach(operator => {
     });
 })
 
+let c = 0;
+
 equal.addEventListener("click", () => {
-    combinedNumbers[combinedNumbers.length] = parseInt(displayValue.join(""));
-  finalNumber = operate(operatorPressed[0], combinedNumbers[0], combinedNumbers[1]);
+  combinedNumbers[combinedNumbers.length] = parseInt(displayValue.join(""));
+  finalNumber = combinedNumbers.reduce((a, b) => operate(operatorPressed[c++], a, b));
   display.textContent = finalNumber; 
   displayValue = [];
   combinedNumbers = [];
   operatorPressed = [];
   i = 0;
   f = 0;
+  c = 0;
 })
 
 clear.addEventListener("click", () => {
@@ -89,4 +93,5 @@ clear.addEventListener("click", () => {
   combinedNumbers = [];
   i = 0;
   f = 0;
+  c = 0;
 })
