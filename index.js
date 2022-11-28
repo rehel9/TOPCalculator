@@ -34,8 +34,12 @@ const operate = (operator, a, b) => {
         return subtract(a, b)
     case "*":
         return multiply(a, b)
-    case "/": 
+    case "/":
+        if( a === 0 || b === 0){
+            return "You cant divide zero!"
+        } else { 
         return divide(a, b)
+        }
     }
 }
 
