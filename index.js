@@ -46,34 +46,47 @@ const equal = document.querySelector(".equal")
 const clear = document.querySelector(".clear")
 
 let i = 0;
+let f = 0;
 let displayValue = [];
+let operatorPressed = [];
+let combinedNumbers = [];
 
 numberPad.forEach(number => {
     number.addEventListener("click", () => {
         console.log("clicked")
         displayValue[i] = number.id;
-        display.textContent += number.id; 
+        display.textContent += number.id;
+        i++;
     });
 })
 
 functions.forEach(operator => {
-    operator.addEventListener("click", () => {
-      i++;  
+    operator.addEventListener("click", () => {  
       console.log("clicked")
-      displayValue[i] = operator.id;
+      combinedNumbers[f] = parseInt(displayValue.join(""));
+      displayValue = []
+      operatorPressed[f] = operator.id;
       display.textContent += operator.id; 
-      i++;
+      f++;
     });
 })
 
 equal.addEventListener("click", () => {
-//    display.textContent = operate("+", 5, 5);
-  display.textContent = ""; 
+    combinedNumbers[combinedNumbers.length] = parseInt(displayValue.join(""));
+  finalNumber = operate(operatorPressed[0], combinedNumbers[0], combinedNumbers[1]);
+  display.textContent = finalNumber; 
   displayValue = [];
+  combinedNumbers = [];
+  operatorPressed = [];
+  i = 0;
+  f = 0;
 })
 
 clear.addEventListener("click", () => {
   display.textContent = "";
   displayValue = [];
-  
+  operatorPressed = [];
+  combinedNumbers = [];
+  i = 0;
+  f = 0;
 })
